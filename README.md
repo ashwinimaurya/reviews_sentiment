@@ -67,32 +67,37 @@ def get_response_details(customer_review, model):
     return response.content
 
 
-def get_product_template(product, model):
-    
-    from langchain.chat_models import ChatOpenAI
-    
-    review_template = """Take a deep breath. For the following product, extract the following information and output as python dictionary:
-
-                        kwd:              List the top ingredients used to make this product.
-
-                        nutritions:       List the top nutritions found in this product.
-
-                        text: {product}
-
-                        """
-        
-    prompt = ChatPromptTemplate.from_template(template=review_template)
-    
-    messages = prompt.format_messages(product=product)
-    
-    chat_model= ChatOpenAI(temperature=0.2, model=model)
-    
-    response = chat_model(messages)
-
-    return response.content
-
 def get_formatted_response(res):
     return json.loads(res)
+
+
+#### Calls to LLMs GPT Turbo 3.5 and GPT 4
+
+st=time.time()
+
+res_11=get_response_details(review_text_1,model=llm_model_3)
+res_12=get_response_details(review_text_2,model=llm_model_3)
+res_21=get_response_details(review_text_1,model=llm_model_4)
+res_22=get_response_details(review_text_2,model=llm_model_4)
+
+resp_31=get_product_template(question_1,model=llm_model_3)
+resp_32=get_product_template(question_1,model=llm_model_4)
+
+en=time.time()
+
+print(f'time take {en-st}')
+
+res=pd.DataFrame()
+res['review_text']=[review_text_1,review_text_2]
+res['kwd_gpt_3.5']=[get_formatted_response(res_11)['kwd'],get_formatted_response(res_12)['kwd']]
+res['kwd_gpt_4']=[get_formatted_response(res_21)['kwd'],get_formatted_response(res_22)['kwd']]
+res['summary_review_gpt_3.5']=[get_formatted_response(res_11)['summary_review'],get_formatted_response(res_12)['summary_review']]
+res['summary_review_gpt_4']=[get_formatted_response(res_21)['summary_review'],get_formatted_response(res_22)['summary_review']]
+res['biz_response_gpt_3.5']=[get_formatted_response(res_11)['biz_response'],get_formatted_response(res_12)['biz_response']]
+res['biz_response_gpt_4']=[get_formatted_response(res_21)['biz_response'],get_formatted_response(res_22)['biz_response']]
+
+res
+
 ```
 
 Also, LLMs can help to answer the contextual infortaion such as ingredients in some item upto great extent. 
