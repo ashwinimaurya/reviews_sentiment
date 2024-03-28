@@ -93,8 +93,6 @@ res['summary_review_gpt_4']=[get_formatted_response(res_21)['summary_review'],ge
 res['biz_response_gpt_3.5']=[get_formatted_response(res_11)['biz_response'],get_formatted_response(res_12)['biz_response']]
 res['biz_response_gpt_4']=[get_formatted_response(res_21)['biz_response'],get_formatted_response(res_22)['biz_response']]
 
-res
-
 ```
 
 <img width="1321" alt="image" src="https://github.com/ashwinimaurya/reviews_sentiment/assets/13278692/0ed56dbf-bbd4-4d3c-9085-04e97cd6c725">
