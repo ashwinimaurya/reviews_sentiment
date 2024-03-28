@@ -99,5 +99,5 @@ res['biz_response_gpt_4']=[get_formatted_response(res_21)['biz_response'],get_fo
 
 <img width="1315" alt="image" src="https://github.com/ashwinimaurya/reviews_sentiment/assets/13278692/b8e09750-dd29-4611-95f4-0fdb8fd443e0">
 
-
+Its worth noting that GPT 4 calls yields better responses as this model can better understand the context, and formulate its response as comapred to Turbo 3.5. The keywords are quite relevant to review text despite the review text is quite short. The review summary is concise and to the point. Also the business response have is respectful and use words wisely than Turbo 3.5 model.
 
