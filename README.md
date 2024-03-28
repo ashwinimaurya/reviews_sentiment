@@ -80,9 +80,6 @@ res_12=get_response_details(review_text_2,model=llm_model_3)
 res_21=get_response_details(review_text_1,model=llm_model_4)
 res_22=get_response_details(review_text_2,model=llm_model_4)
 
-resp_31=get_product_template(question_1,model=llm_model_3)
-resp_32=get_product_template(question_1,model=llm_model_4)
-
 en=time.time()
 
 print(f'time take {en-st}')
@@ -100,7 +97,9 @@ res
 
 ```
 
-Also, LLMs can help to answer the contextual infortaion such as ingredients in some item upto great extent. 
+<img width="1321" alt="image" src="https://github.com/ashwinimaurya/reviews_sentiment/assets/13278692/0ed56dbf-bbd4-4d3c-9085-04e97cd6c725">
 
-question='can you plz find me ingredients for items in triple quotes """poppi ginger lime prebiotic soda""" '
+<img width="1315" alt="image" src="https://github.com/ashwinimaurya/reviews_sentiment/assets/13278692/b8e09750-dd29-4611-95f4-0fdb8fd443e0">
+
+
 
